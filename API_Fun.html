@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>API Fun</title>
+	<meta charset="utf-8"/>
+	<script language="javascript">
+		function loadData() {
+			
+			const data = null;
+			const request = new XMLHttpRequest();
+			request.withCredentials = true;
+ 			myWord = document.forms[0].word.value;
+			request.open("GET", "https://wordsapiv1.p.rapidapi.com/words/"+myWord+"/definitions", true);
+			request.setRequestHeader("x-rapidapi-key", "f46fd9af62msh5f1beebaa9d5f78p1fa52fjsne984bba1bc25");
+			request.setRequestHeader("x-rapidapi-host", "wordsapiv1.p.rapidapi.com");
+
+			request.addEventListener("readystatechange", function () {
+				if (this.readyState == this.DONE) {
+					myResponse = request.responseText;
+					document.getElementById("myData").innerHTML = "<br>The definition is: " + myResponse;
+				}
+			});
+			request.send(data);
+		}  // end load data
+	</script>
+</head>
+<body>
+
+	<h1>Dictionary</h1>
+	<form>What word would you like the definition of? <input type = 'text' name = 'word'>
+		<br><input type = "button" value = "Get Definition"
+			onclick="loadData()">
+	</form>
+	<div id="myData">&nbsp;</div>
+	<p> I found this API in the github list provided to us on the course website. </p>
+	<p> Website: https://www.wordsapi.com/</p>
+	<p> I chose to only include the definition option for the word that the user inputs. </p>
+	<p> This could be useful in a simple dictionary app, or it could be useful in a reading app. <br>
+		For example, if a user of this app is reading a book on it and does not know what one of the <br>
+		words mean, they could tap on it and the app could request the definition from this API and <br>
+		could deisplay it back to the user.</p>
+</body>
+</html>
