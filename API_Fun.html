@@ -17,11 +17,11 @@
 			request.addEventListener("readystatechange", function () {
 				if (this.readyState == this.DONE) {
 					myResponse = request.responseText;
-					document.getElementById("myData").innerHTML = "<br>The definition is: " + myResponse;
+					document.getElementById("myData").innerHTML = "<br><br>The definition is: " + myResponse;
 				}
 			});
 			request.send(data);
-		}  // end load data
+		}
 	</script>
 </head>
 <body>
@@ -41,3 +41,4 @@
 		could deisplay it back to the user.</p>
 </body>
 </html>
+
